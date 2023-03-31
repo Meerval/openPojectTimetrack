@@ -1,4 +1,4 @@
-package com.iiiitech.openproject.config;
+package com.openproject.config;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;

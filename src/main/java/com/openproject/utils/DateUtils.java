@@ -1,6 +1,6 @@
-package com.iiiitech.openproject.utils;
+package com.openproject.utils;
 
-import com.iiiitech.openproject.config.Property;
+import com.openproject.config.Property;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.DayOfWeek;

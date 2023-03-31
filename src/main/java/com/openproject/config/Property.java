@@ -1,4 +1,4 @@
-package com.iiiitech.openproject.config;
+package com.openproject.config;
 
 import java.io.IOException;
 import java.io.InputStream;

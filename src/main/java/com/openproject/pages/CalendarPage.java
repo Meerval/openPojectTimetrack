@@ -1,12 +1,10 @@
-package com.iiiitech.openproject.pages;
+package com.openproject.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.iiiitech.openproject.config.Property;
-import com.iiiitech.openproject.utils.DateUtils;
+import com.openproject.config.Property;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;

@@ -1,10 +1,10 @@
-package com.iiiitech.openproject;
+package com.openproject;
 
-import com.iiiitech.openproject.config.BrowserConfiguration;
-import com.iiiitech.openproject.pages.CalendarPage;
-import com.iiiitech.openproject.pages.LoginPage;
+import com.openproject.config.BrowserConfiguration;
+import com.openproject.pages.CalendarPage;
+import com.openproject.pages.LoginPage;
 
-import static com.iiiitech.openproject.utils.DateUtils.getDatesFromInterval;
+import static com.openproject.utils.DateUtils.getDatesFromInterval;
 
 public class LogTime {
 

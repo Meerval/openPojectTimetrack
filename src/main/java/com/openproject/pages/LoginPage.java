@@ -1,7 +1,7 @@
-package com.iiiitech.openproject.pages;
+package com.openproject.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.iiiitech.openproject.config.Environment;
+import com.openproject.config.Environment;
 
 import static com.codeborne.selenide.Selenide.$;
 
