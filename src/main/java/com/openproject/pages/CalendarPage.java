@@ -21,7 +21,7 @@ public class CalendarPage {
     private static final SelenideElement workCommentField = modalWindow.find("#wp-new-inline-edit--field-comment");
     private static final SelenideElement createButton = modalWindow.find("div[class*='op-modal_autoheight'] [title='Create']");
 
-    private static final Boolean isVacation = Boolean.getBoolean(Property.isVacation.getProperty());
+    private static final String isVacation = Property.isVacation.getProperty();
 
     private static final String hours = Property.hours.getProperty();
     private static final String workProjectCode = Property.work_projectCode.getProperty();
@@ -41,17 +41,21 @@ public class CalendarPage {
         hoursField.clear();
         hoursField.sendKeys(hours);
 
-        projectCodeField.sendKeys(isVacation ? vacationProjectCode : workProjectCode);
+        projectCodeField.sendKeys(isVacationDay() ? vacationProjectCode : workProjectCode);
         projectCodeOption.shouldBe(Condition.exist);
         projectCodeField.pressEnter();
 
-        workActivityFiled.sendKeys(isVacation ? vacationActivity : workActivity);
+        workActivityFiled.sendKeys(isVacationDay() ? vacationActivity : workActivity);
         workActivityFiled.pressEnter();
 
         workCommentField.clear();
-        workCommentField.sendKeys(isVacation ? vacationComment : workComment);
+        workCommentField.sendKeys(isVacationDay() ? vacationComment : workComment);
 
         createButton.click();
+    }
+
+    private static boolean isVacationDay() {
+        return isVacation.equals("true");
     }
 
     public void fillDays(@NotNull List<String> dates) {
