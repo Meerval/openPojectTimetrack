@@ -3,6 +3,7 @@ package com.openproject.config;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserConfiguration {
 
@@ -16,7 +17,13 @@ public class BrowserConfiguration {
     }
 
     public static void setUpChromeOptions() {
-        Configuration.browserCapabilities = new ChromeOptions().addArguments(chromeOptionsArguments);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        ChromeOptions options = new ChromeOptions();
+
+        options.addArguments(chromeOptionsArguments);
+        capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+
+        Configuration.browserCapabilities = capabilities;
     }
 
     public static void setUpWebDriverConfiguration() {
