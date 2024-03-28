@@ -35,8 +35,8 @@ vacation.project_code = 45
 vacation.activity = Absence
 vacation.comment =
 
-date.first_day = 01.03.2023
-date.last_day = 31.03.2023
+date.first_day = 01.03.2024
+date.last_day = 31.03.2024
 ```
 
 **url.template** - шаблон адреса страницы Open Project, не менять
