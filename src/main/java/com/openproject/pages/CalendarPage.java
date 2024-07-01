@@ -5,57 +5,44 @@ import com.codeborne.selenide.SelenideElement;
 import com.openproject.config.Property;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.Duration;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class CalendarPage {
-    private static final SelenideElement logTimeButton = $("button[class='button te-calendar--create-button']");
+    private final SelenideElement logTimeButton = $("button[class='button te-calendar--create-button']");
 
-    private static final SelenideElement modalWindow = $("div[class*='op-modal_autoheight']");
-    private static final SelenideElement spentOnField = modalWindow.find("#wp-new-inline-edit--field-spentOn");
-    private static final SelenideElement hoursField = modalWindow.find("#wp-new-inline-edit--field-hours");
-    private static final SelenideElement projectCodeField = modalWindow.find("#wp-new-inline-edit--field-workPackage .ng-input input");
-    private static final SelenideElement projectCodeOption = $("[class='ng-option ng-option-marked']");
-    private static final SelenideElement workActivityFiled = modalWindow.find("#wp-new-inline-edit--field-activity .ng-input input");
-    private static final SelenideElement workCommentField = modalWindow.find("#wp-new-inline-edit--field-comment");
-    private static final SelenideElement createButton = modalWindow.find("div[class*='op-modal_autoheight'] [title='Create']");
+    private final SelenideElement modalWindow = $("div[class*='spot-modal_allow-overflow']");
+    private final SelenideElement spentOnField = modalWindow.find("#wp-new-inline-edit--field-spentOn");
+    private final SelenideElement hoursField = modalWindow.find("#wp-new-inline-edit--field-hours");
+    private final SelenideElement projectCodeField = modalWindow.find("#wp-new-inline-edit--field-workPackage .ng-input input");
+    private final SelenideElement projectCodeOption = $(".op-autocompleter--wp-id");
+    private final SelenideElement workActivityFiled = modalWindow.find("#wp-new-inline-edit--field-activity .ng-input input");
+    private final SelenideElement workCommentField = modalWindow.find("#wp-new-inline-edit--field-comment");
+    private final SelenideElement createButton = modalWindow.find("[title='Save']");
 
-    private static final String isVacation = Property.isVacation.getProperty();
-
-    private static final String hours = Property.hours.getProperty();
-    private static final String workProjectCode = Property.work_projectCode.getProperty();
-    private static final String workActivity = Property.work_activity.getProperty();
-    private static final String workComment = Property.work_activity.getProperty();
-
-    private static final String vacationProjectCode = Property.vacation_projectCode.getProperty();
-    private static final String vacationActivity = Property.vacation_activity.getProperty();
-    private static final String vacationComment = Property.vacation_comment.getProperty();
-
-    private static void fillDay(@NotNull String date) {
-        logTimeButton.click();
+    private void fillDay(@NotNull String date) {
+        logTimeButton.shouldHave(Condition.visible, Duration.ofMinutes(3)).click();
 
         spentOnField.clear();
         spentOnField.sendKeys(date);
 
         hoursField.clear();
-        hoursField.sendKeys(hours);
+        hoursField.sendKeys(Property.hours.getProperty());
 
-        projectCodeField.sendKeys(isVacationDay() ? vacationProjectCode : workProjectCode);
-        projectCodeOption.shouldBe(Condition.exist);
+        String projectCode = Property.work_projectCode.getProperty();
+        projectCodeField.sendKeys(projectCode);
+        projectCodeOption.shouldHave(Condition.text("#" + projectCode));
         projectCodeField.pressEnter();
 
-        workActivityFiled.sendKeys(isVacationDay() ? vacationActivity : workActivity);
+        workActivityFiled.sendKeys(Property.work_activity.getProperty());
         workActivityFiled.pressEnter();
 
         workCommentField.clear();
-        workCommentField.sendKeys(isVacationDay() ? vacationComment : workComment);
+        workCommentField.sendKeys(Property.work_comment.getProperty());
 
         createButton.click();
-    }
-
-    private static boolean isVacationDay() {
-        return isVacation.equals("true");
     }
 
     public void fillDays(@NotNull List<String> dates) {

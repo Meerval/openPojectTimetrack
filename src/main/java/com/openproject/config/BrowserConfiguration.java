@@ -2,6 +2,7 @@ package com.openproject.config;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -24,6 +25,9 @@ public class BrowserConfiguration {
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         Configuration.browserCapabilities = capabilities;
+        Configuration.timeout = 15_000;
+        Configuration.pageLoadTimeout = 15_000;
+        Configuration.pageLoadStrategy = PageLoadStrategy.NORMAL.toString();
     }
 
     public static void setUpWebDriverConfiguration() {

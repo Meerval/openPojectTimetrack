@@ -15,6 +15,7 @@ public class LogTime {
     public static void main(String[] args) {
         BrowserConfiguration.initWebDriver();
 
+        // If you have to write un authentication code, you should input it and click "Sign in" by yourself in 3 minutes
         loginPage.login();
         calendarPage.fillDays(getDatesFromInterval());
     }

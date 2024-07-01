@@ -21,27 +21,21 @@ Edit configuration templates... -> Application -> Environment Variables`
 Для того, чтобы настроить параметры заполнения, изменяйте параметры в файле src/main/resources/config.properties
 
 ```properties
-url.template = https://openproject.{}.com
+url.template=https://openproject.{}.com
+hours=4
 
-is_vacation = false
+work.project_code=4085
+work.activity=-
+#vacation
+#work.project_code=45
+#work.activity=Absence
+work.comment=Auto Testing
 
-hours = 8
-
-work.project_code = 660
-work.activity = Testing
-work.comment = Auto Testing
-
-vacation.project_code = 45
-vacation.activity = Absence
-vacation.comment =
-
-date.first_day = 01.03.2024
-date.last_day = 31.03.2024
+date.first_day=01.07.2024
+date.last_day=12.07.2024
 ```
 
 **url.template** - шаблон адреса страницы Open Project, не менять
-
-**is_vacation** - eсли заполняемые дни являются отпуском - поставьте `true`, в противном случае `false`;
 
 **work.project_code** - код проекта, указан спава от предложенных результатов при заполнении поля Work package со
 знаком `#`. ⚠️вводите только числовое значения, без знака
@@ -50,10 +44,13 @@ date.last_day = 31.03.2024
 
 **work.comment** - любой комментарий. поле может остаться пустым
 
-Все поля **vacation** заполняются аналогично полям work, значения выбираются для отпуска
-
 **date.first_day** - первый заполняемый день в формате `dd.MM.yyyy`
 
 **date.last_day** - последний заполняемый день в формате `dd.MM.yyyy`. Если нужно заполнить один день, то вписывается дата
 из **date.first_day** 
 
+## Запуск ##
+
+Для запуска используем метод _main()_ класса _com.openproject.LogTime_
+
+☝️Если необходимо ввести код подтверждения то у вас на это есть 3 минуты. В этом случае не забудьте сами нажать кнопку "Sign in"

@@ -13,9 +13,6 @@ public enum Property {
     work_projectCode("work.project_code"),
     work_activity("work.activity"),
     work_comment("work.comment"),
-    vacation_projectCode("vacation.project_code"),
-    vacation_activity("vacation.activity"),
-    vacation_comment("vacation.comment"),
     date_firstDay("date.first_day"),
     date_lastDay("date.last_day");
 

@@ -14,6 +14,8 @@ public class LoginPage {
     public void login() {
         usernameField.sendKeys(System.getenv(Environment.login.name()));
         passwordField.sendKeys(System.getenv(Environment.password.name()));
+
+        // If you have to write un authentication code, you should input it and click "Sign in" by yourself in 3 minutes
         loginButton.click();
     }
 
