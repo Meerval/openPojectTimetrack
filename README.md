@@ -25,7 +25,7 @@ url.template=https://openproject.{}.com
 hours=4
 
 work.project_code=4085
-work.activity=-
+work.activity=Testing
 #vacation
 #work.project_code=45
 #work.activity=Absence
