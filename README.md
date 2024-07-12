@@ -22,7 +22,7 @@ Edit configuration templates... -> Application -> Environment Variables`
 
 ```properties
 url.template=https://openproject.{}.com
-hours=4
+hours=8
 
 work.project_code=4085
 work.activity=Testing
@@ -32,7 +32,7 @@ work.activity=Testing
 work.comment=Auto Testing
 
 date.first_day=01.07.2024
-date.last_day=12.07.2024
+date.last_day=31.07.2024
 ```
 
 **url.template** - шаблон адреса страницы Open Project, не менять
